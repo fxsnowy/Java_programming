@@ -1,0 +1,26 @@
+import cs61b.homework4.*;
+import cs61b.homework4.Lockable.LockDList;
+
+
+class B{
+	private B(){
+		
+	}
+	
+}
+
+class A extends B{
+	A(){
+		super();
+	}
+	
+}
+
+public class Dummy {
+	
+
+    public static void main(String[] args) {
+    	A a = new A();
+    	
+	} //end main Collections
+}

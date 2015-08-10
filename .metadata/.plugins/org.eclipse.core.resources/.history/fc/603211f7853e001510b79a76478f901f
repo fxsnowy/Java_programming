@@ -1,0 +1,64 @@
+/* LockDList.java */
+package cs61b.homework4.Lockable;
+
+import cs61b.homework4.DList;
+import cs61b.homework4.DListNode;
+
+
+
+
+public class LockDList extends DList {
+
+	/**
+	 * newNode() calls the LockDListNode constructor. Use this method to
+	 * allocate new LockDListNodes rather than calling the LockDListNode
+	 * constructor directly.
+	 * 
+	 * @param item
+	 *            the item to store in the node.
+	 * @param prev
+	 *            the node previous to this node.
+	 * @param next
+	 *            the node following this node.
+	 */
+	protected LockDListNode newNode(Object item, DListNode prev, DListNode next) {
+		return new LockDListNode(item, prev, next);
+	}
+
+	/**
+	 * LockDList() constructor for an empty LockDList.
+	 */
+	public LockDList() {
+		this.sentinel = this.newNode(null,null,null);
+		  this.sentinel.setNext(sentinel);
+		  this.sentinel.setPrev(sentinel);
+		
+	}
+
+	/**
+	 * remove() removes "node" from this DList. If "node" is null, do nothing.
+	 * Performance: runs in O(1) time.
+	 */
+	public void remove(DListNode node) {
+		if (node == null) {
+			return;
+		} else if (((LockDListNode)node).lock == true) {
+			return;
+		} else {
+			node.item = null;
+			node.getPrev().setNext(node.getNext());
+			node.getNext().setPrev(node.getPrev());
+			this.size--;
+		}
+	}
+
+	public void lockNode(DListNode node) {
+		if(node == null){
+			return;
+		}else{
+			((LockDListNode)node).lock = true;
+		}
+		
+	}
+
+}

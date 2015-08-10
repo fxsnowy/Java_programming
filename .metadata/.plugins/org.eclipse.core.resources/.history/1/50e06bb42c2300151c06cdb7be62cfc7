@@ -1,0 +1,20 @@
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+interface Super{
+	void m1();
+}
+abstract class Sub implements Super{
+	
+}
+public class Dummy {
+
+	public static void main(String[] args) {
+		AbstractList l = new ArrayList<String>();
+		l.add("one");
+		AbstractCollection
+	} //end main
+}

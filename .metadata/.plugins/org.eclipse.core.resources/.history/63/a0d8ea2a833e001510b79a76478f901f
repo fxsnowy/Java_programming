@@ -1,0 +1,10 @@
+package Constructors_Initialization;
+
+public class BasicFacts {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,16 @@
+package OverloadingMethods;
+
+/*
+ * 1) If a method is declared in a class or interface with the same name
+ * but different signatures as an existing accessible method it is said to 
+ * be overloaded.
+ */
+
+public class OverrideAndOverloadDecla {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

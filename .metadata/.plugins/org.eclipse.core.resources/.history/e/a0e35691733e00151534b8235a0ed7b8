@@ -1,0 +1,10 @@
+package OverloadingMethods;
+
+public class OverrideAndOverloadDecla {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

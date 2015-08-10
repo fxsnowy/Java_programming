@@ -1,0 +1,10 @@
+package Constructors_Initialization;
+
+public class InstanceInitializationBlock {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

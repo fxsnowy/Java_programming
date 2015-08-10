@@ -1,0 +1,55 @@
+package ClassesOverridingHidingAccess;
+
+/*
+ * 1) Fields and Static methods hide, instance methods override.
+ * 
+ * 2) A cast can reveal what's hidden.
+ * 
+ * 3) 'super' can bypass overriding when followed by an instance method
+ * when followed by a field or static method it acts like a cast unhiding.
+ * 
+ * 4) A static field may hide an instance field and an instance field may
+ * hide a static field.
+ * 
+ * 5) Shadowing is a type of hiding which occurs entirely withing a class.
+ * A variable locally declared within a method, 'shadows' any field in the 
+ * class with the same name.
+ *  
+ * 6) Overriding happens at runtime.
+ */
+class Great{
+	String intro = "Hello";
+	
+	String who(){
+		return "everybody";
+	}
+	
+	static String where(){
+		return "there";
+	}
+}
+
+class SwissGreat extends Great{
+	String intro = "Grüezi";
+	
+	String who(){
+		return "mitenand";
+	}
+	
+	static String where(){
+		return "acolo";
+	}
+}
+public class HidingVsOverriding {
+
+	public static void main(String[] args) {
+		Great english = new Great();
+		Great swiss = new SwissGreat();
+		
+		System.out.println(english.intro +" " + english.who() + " " + english.where());
+		System.out.println(swiss.intro + " " + swiss.who() + " " + swiss.where());
+		System.out.println(((SwissGreat)swiss).intro + " " + ((SwissGreat)swiss).who() + "  " + ((SwissGreat)swiss).where());
+		
+	}
+
+}

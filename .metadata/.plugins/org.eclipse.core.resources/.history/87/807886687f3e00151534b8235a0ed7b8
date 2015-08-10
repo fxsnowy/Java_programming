@@ -1,0 +1,16 @@
+/* LockDListNode.java */
+
+package cs61b.homework4.Lockable;
+
+import cs61b.homework4.DListNode;
+
+public class LockDListNode extends DListNode{
+	
+	protected boolean lock;
+	
+	
+	LockDListNode(Object i, DListNode p, DListNode n){
+		new DlistNode(i, p, n);
+		lock = false;
+	}
+}

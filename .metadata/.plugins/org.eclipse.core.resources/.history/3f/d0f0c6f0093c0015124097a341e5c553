@@ -1,0 +1,15 @@
+package ProtectedAccess.pkg1;
+
+/*
+ * 1) 
+ */
+public class T {
+
+	protected int f;
+	protected void m(){
+		
+	}
+
+}
+
+

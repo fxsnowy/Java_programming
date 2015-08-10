@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Dummy {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public static int getIntegerInput(String prompt){
+		int choice = 0;
+		for(;;){
+			System.out.print(prompt);
+			try{
+				choice = sc.nextInt();
+				break;
+			}catch(java.util.InputMismatchException ex){
+				System.out.print("What??? ");
+			}
+		}
+		return choice;
+	}
+    public static void main(String[] args) {
+    	int choice = getIntegerInput("Enter a number: ");
+    	
+	} //end main Collections
+}

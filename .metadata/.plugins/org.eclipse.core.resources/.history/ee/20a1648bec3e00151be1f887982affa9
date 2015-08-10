@@ -1,0 +1,13 @@
+package Constructors_Initialization;
+
+/*
+ * An instance initialisation code is 
+ */
+public class InstanceInitializationBlock {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

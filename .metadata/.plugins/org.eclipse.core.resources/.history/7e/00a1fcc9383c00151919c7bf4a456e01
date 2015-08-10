@@ -1,0 +1,17 @@
+package OverloadingMethods;
+
+/*
+ * 1) When you override a method you must not change the argument types
+ * or their order. If you do change these you will simply get another 
+ * method with the same name.
+ * 
+ * 2) 
+ */
+public class Example1 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

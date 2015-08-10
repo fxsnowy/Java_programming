@@ -1,0 +1,11 @@
+import java.util.Scanner;
+import cs61b.homework4.*;
+
+public class Dummy {
+	
+
+    public static void main(String[] args) {
+    	DListNode d = new DListNode(null, null, null);
+    	
+	} //end main Collections
+}

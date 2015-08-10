@@ -1,0 +1,20 @@
+package Constructors_Initialization;
+
+/*
+ * An instance initialisation code is inserted by the compiler after
+ * every call to super() as show below.
+ * 
+ * Code before compilation:
+ * class C{
+ * 		int[] digits; int max = 3;
+ * 
+ * 
+ */
+public class InstanceInitializationBlock {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

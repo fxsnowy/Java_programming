@@ -1,0 +1,42 @@
+package ClassesOverridingHidingAccess;
+
+class Point{
+	final int EDGE = 20;
+	int x, y;
+	
+	void move(int dx, int dy){
+		x += dx; y += dy;
+		if(Math.abs(x) >= EDGE || Math.abs(y) >= EDGE){
+			clear();
+		}
+	}
+	
+	protected void clear(){
+		System.out.println("Point clear");
+		x = 0; y = 0;
+	}
+}
+
+class ColoredPoint extends Point{
+	int color;
+	void clear(){
+		System.out.println("ColoredPoint clear");
+		/*
+		 * reference type 'super' allows you to access methods in the superclass
+		 * which would otherwise be overridden
+		 */
+		super.clear();
+		color = 0;
+	}
+}
+
+
+public class SuperAndOverriding {
+
+	public static void main(String[] args) {
+		Point p = new Point();
+		p.move(20, 20);  // Point clear
+		p = new ColoredPoint();
+		p.move(20, 20);	//ColoredPoint clear; Point clear
+	}
+}	

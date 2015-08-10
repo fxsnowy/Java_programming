@@ -1,0 +1,25 @@
+package OverloadingMethods;
+
+/*
+ * 1) When you override a method you must not change the argument types
+ * or their order. If you do change these you will simply get another 
+ * method with the same name. This is called 'overloading'.
+ * 
+ * 2) A good method of an overloaded method is 'println'. To properly 
+ * identify a method you need both the name and argument types.
+ * 
+ * 3) You can declare a method in one class and overload it in a subclass,
+ * that just means the subclass has got two methods with the same name one
+ * of which is inherited.
+ * 
+ * 
+ * 
+ */
+public class Example1 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,45 @@
+package Constructors_Initialization;
+
+/*
+ * Used to initialise instance variables. Called when you do
+ * 			new constructor(parameterList);
+ * 
+ * 1. No return type. You may have a return statement but it mustn't
+ * return a value.
+ * 
+ * 2. Name must be the same as the class name.
+ * 
+ * 3. Every class including abstract class has at-least one constructor.
+ * If you don't declare on the compiler inserts a default one taking no
+ * parameters.
+ * 
+ * 4. Constructors are often overloaded. They cannot be overridden.
+ * 
+ * 5. may have any access modifier. A compiler supplied constructor has the 
+ * same access modifier as the class.
+ * 
+ * 6. Whenever you call a class constructor its super class constructor 
+ * is made to run first.
+ * 
+ */
+
+class B{
+	B(){ /* initialise fields of B */ }
+}
+	
+class A extends B{
+	A(){/* initialise fields of A */}
+}
+
+/*
+ * What happens when you call new A()
+ */
+
+public class BasicFacts {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

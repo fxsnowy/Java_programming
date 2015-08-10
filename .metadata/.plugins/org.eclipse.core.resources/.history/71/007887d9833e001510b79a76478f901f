@@ -1,0 +1,16 @@
+package Constructors_Initialization;
+
+/*
+ * Used to initialise instance variables. Called when you do
+ * 			new constructor(parameterList);
+ * 
+ * 
+ */
+public class BasicFacts {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

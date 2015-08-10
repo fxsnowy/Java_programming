@@ -1,0 +1,67 @@
+package ProtectedAccess.pkg2;
+import ProtectedAccess.pkg1.*;
+
+/*
+ * 2) If you are in a different package then how you are accessing the protected
+ * field or method?
+ * First you have to be in a subclass S as shown below.
+ * If you're using inheritance to access the field or method then its OK.
+ * Example:
+ *
+ * package package1;
+ * public class A {
+ * 
+ * 		public int publicInt = 1;
+ * 		private int privateInt = 1;
+ * 		int defaultInt = 1;
+ * 		protected int protectedInt = 1;
+ * }
+ * 
+ * package package2;
+ * import package1.A;
+ * public class C extends A{
+ * 
+ * 	    public void go(){
+ * 			//remember the import statement
+ * 			A a = new A();
+ * 			System.out.println(a.publicInt);
+ * 			System.out.println(a.protectedInt); //compiler error; access of 'protectedInt' is not thru inheritance
+ * 		}
+ * }
+ * 
+ *
+ *
+ * 
+ */
+
+class A extends T {}
+class B extends T{}
+class C extends B{}
+
+public class S extends T{
+	void test1(){
+		f = 42; // 'S' instance's method is executing this code. OK.
+		m();    // 'S' instance's method is executing this code. OK.
+	}
+	
+	void test2(S  t){
+		/*
+		 * Below code is,
+		 * OK, if protected member 'f' & 'm' are accessed via 'S' or it's subclass(S, D, E, F, G, H)
+		 * instance because D, E, F, G, H are 'S' by inheritance.
+		 * 
+		 * Not OK, if protected member is accessed via T, A, B, C instance.
+		 * because T, A, B, C is not S
+		 *  
+		 */
+		t.f = 42;  
+		t.m();    
+	}
+	
+}
+
+class D extends S{}
+class G extends D{}
+class E extends S{}
+class H extends E{}
+class F extends S{}
