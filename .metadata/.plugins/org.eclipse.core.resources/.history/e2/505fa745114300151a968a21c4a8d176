@@ -1,0 +1,11 @@
+package Constructors_Initialization;
+
+
+public class ClassAndInterfaceInitialization {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

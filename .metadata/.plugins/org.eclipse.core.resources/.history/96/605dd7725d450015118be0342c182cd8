@@ -1,0 +1,22 @@
+package Constructors_Initialization;
+
+/*
+ * This is the process of setting the static fields in classes 
+ * and interfaces.
+ * 
+ * Initialization is done using 'static initialization blocks'.
+ * The same rules for forward references apply as for instance 
+ * initialization.
+ * 
+ *  
+ *   
+ * 
+ */
+public class ClassAndInterfaceInitialization {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,17 @@
+package Constructors_Initialization;
+
+
+/*
+ * 1. If an instance initializer can throw an exception then that 
+ * exception must be declared in the throws clause of every constructor.
+ * 
+ * 2. 
+ */
+public class ExceptionsInInstanceInitialisation {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

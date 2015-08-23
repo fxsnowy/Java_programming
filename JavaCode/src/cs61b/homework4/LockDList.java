@@ -35,7 +35,7 @@ public class LockDList extends DList {
 	public void remove(DListNode node) {
 		
 	if ( (node != null)
-				&&  !(((LockDListNode)node).lock) )  {
+				&&  !(((LockDListNode)node).getLockStatus()) )  {
 		super.remove(node);
 		}
 	}
@@ -49,7 +49,7 @@ public class LockDList extends DList {
 	public void lockNode(DListNode node) {
 		
 		if ((node != null) && (node instanceof LockDListNode)) {
-			((LockDListNode) node).lock = true;
+			((LockDListNode) node).setLockStatus(true);
 		} 
 		
 	}

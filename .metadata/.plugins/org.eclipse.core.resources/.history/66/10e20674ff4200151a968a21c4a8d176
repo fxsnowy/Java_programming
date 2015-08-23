@@ -1,0 +1,29 @@
+package Constructors_Initialization;
+
+
+/*
+ * 1) This applies to instance initializer blocks and instance field
+ * initializers. First methods and constructors may have any sort of 
+ * forward references.
+ * 
+ * 2) Static variables are initialized before instance variables, any
+ * sort of reference to a static variable is allowed. 
+ * 
+ * 3) What is prohibited is any forward reference to a field using a simple
+ * name on the RHS of an assignment.
+ * 
+ *  
+ */
+
+
+class C{
+	
+}
+public class ProhibitedForwardReferences {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

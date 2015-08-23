@@ -1,0 +1,16 @@
+package Constructors_Initialization;
+
+/*
+ * This is the process of setting the static fields in classes 
+ * and interfaces.
+ * 
+ * 
+ */
+public class ClassAndInterfaceInitialization {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

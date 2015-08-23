@@ -1,0 +1,17 @@
+package Constructors_Initialization;
+
+
+class SuperA{
+	
+}
+class A{
+	
+}
+public class HowConstructorsWork {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package Constructors_Initialization;
+
+public class ProhibitedForwardReferences {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

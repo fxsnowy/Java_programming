@@ -1,0 +1,15 @@
+package Constructors_Initialization;
+
+
+/*
+ * 1) This applies to instance initializer blocks and instance field
+ * initializers. 
+ */
+public class ProhibitedForwardReferences {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

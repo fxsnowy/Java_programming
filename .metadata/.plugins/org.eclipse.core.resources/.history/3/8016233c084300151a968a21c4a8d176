@@ -1,0 +1,22 @@
+package Constructors_Initialization;
+
+
+class SuperE{
+	int val;
+	SuperE(){
+		m();
+	}
+}
+class E{
+	
+}
+
+
+public class HowConstructorsWork {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,23 @@
+package Constructors_Initialization;
+
+
+/*
+ * 1. If an instance initialiser can throw an exception then that 
+ * exception must be declared in the throws clause of every constructor.
+ * This is because the initialisation code is inserted after every call
+ * to 'super' in the constructor.
+ * 
+ * 2. That exception can't be caught because constructors must start with 
+ * 'super'  or 'this' not 'try'
+ */
+
+class MyEx1 extends Exception {}
+class MyEx2 extends Exception {}
+public class ExceptionsInInstanceInitialisation {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
