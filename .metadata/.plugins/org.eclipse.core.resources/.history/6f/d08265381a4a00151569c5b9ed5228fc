@@ -1,0 +1,80 @@
+package BigOhNotation;
+
+/*
+ * Big O notation is a way to measure how well a computer algorithm 
+ * scales as the amount of data involved increases. It is not always
+ * a measure of speed as you'll see below This is a rough overview 
+ * of Big O and doesn't cover topics such as asymptotic analysis,
+ * which covers comparing algorithms as data approaches infinity
+ * What we are defining is the part of the algorithm that has the
+ * greatest effect. For example
+ * 
+ * 45n^3 + 20n^2 + 19 = 84 (n=1)
+ * 45n^3 + 20n^2 + 19 = 459 (n=2) Does 19 matter?
+ * 45n^3 + 20n^2 + 19 = 47019 (n=10)
+ * 
+ * Does the 20n^2 matter if 45n^3 = 45,000?
+ * Has an O(n^3) Order of n-cubed
+ * 
+ */
+public class BigOhNotation {
+	
+	private int[] theArray;
+	private int arraySize;
+	private int itemsInArray = 0;
+	static long startTime;
+	static long endTime;
+	
+
+	//O(1)
+	public void addItemToArray(int newItem){
+		theArray[itemsInArray++] = newItem;
+	}
+	
+	//O(n)
+	public void linearSearchForValue(int value){
+		boolean valueInArray = false;
+		String indexsWithValue = "";
+		
+		startTime = System.currentTimeMillis();
+		
+		for(int i = 0; i < arraySize; i++){
+			if(theArray[i] == value){
+				valueInArray = true;
+				indexsWithValue += i + " ";
+			}
+		}
+		
+		System.out.println("Value found: " + valueInArray);
+		endTime = System.currentTimeMillis();
+		System.out.println("Linear search took:" + endTime - startTime);
+	}
+
+	
+	public void generateRandomArray() {
+
+		for (int i = 0; i < arraySize; i++) {
+
+			theArray[i] = (int) (Math.random() * 1000) + 10;
+
+		}
+
+		itemsInArray = arraySize - 1;
+
+	}
+	
+	public void swapValues(int indexOne, int indexTwo) {
+
+		int temp = theArray[indexOne];
+		theArray[indexOne] = theArray[indexTwo];
+		theArray[indexTwo] = temp;
+
+	}
+
+	public static void main(String[] args) {
+		
+
+	}
+
+	
+}

@@ -1,0 +1,25 @@
+package JavaCollections.list;
+
+import JavaCollections.list.DblyLinkList.DListNode;
+
+public class LockableList<T> extends DblyLinkList<T> {
+
+	
+	
+	/**
+	 *  newNode() calls the DListNode constructor.  Use this class to allocate
+	 *  new DListNodes rather than calling the DListNode constructor directly.
+	 *  That way, only this method needs to be overridden if a subclass of DList
+	 *  wants to use a different kind of node.
+	 *  @param item the item to store in the node.
+	 *  @param prev the node previous to this node.
+	 *  @param next the node following this node.
+	 */
+	 DListNode<T> newNode(T item, DListNode<T> prev, DListNode<T> next) {
+	    return new DListNode(item, prev, next);
+	 }
+	 
+	 
+	
+
+}

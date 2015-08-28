@@ -1,0 +1,8 @@
+package JavaCollections.list;
+
+public class LockableList {
+
+	private boolean lock;
+	
+
+}
