@@ -2,6 +2,11 @@
 
 package cs61b.homework6.dict;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import JavaCollections.list.DblyLinkList;
+
 /**
  * HashTableChained implements a Dictionary as a hash table with chaining. All
  * objects used as keys must have a valid hashCode() method, which is used to
@@ -14,10 +19,13 @@ package cs61b.homework6.dict;
  **/
 
 public class HashTableChained implements Dictionary {
-
+	
 	/**
 	 * Place any data fields here.
 	 **/
+
+	private long tableSize;
+	private ArrayList<DblyLinkList<Entry>> defTable;
 
 	/**
 	 * Construct a new empty hash table intended to hold roughly sizeEstimate
@@ -25,19 +33,83 @@ public class HashTableChained implements Dictionary {
 	 * you use a prime number, and shoot for a load factor between 0.5 and 1.)
 	 **/
 
-	public HashTableChained(int sizeEstimate) {
-		// Your solution here.
+	public HashTableChained(long sizeEstimate) {
+
+		if (!(isPrime(sizeEstimate) && (sizeEstimate > 0L))) {
+			sizeEstimate = nextPrime(sizeEstimate);
+		}
+
+		tableSize = sizeEstimate;
+		defTable = new ArrayList<DblyLinkList<Entry>>((int) sizeEstimate);
+
+		for (int i = 0; i < (int) sizeEstimate; i++) {
+			defTable.add(i, new DblyLinkList<Entry>());
+		}
+
 	}
 
+	
 	/**
 	 * Construct a new empty hash table with a default size. Say, a prime in the
 	 * neighborhood of 100.
 	 **/
 
 	public HashTableChained() {
-		// Your solution here.
+		tableSize = 101;
+		defTable = new ArrayList<DblyLinkList<Entry>>((int) tableSize);
+		for (int i = 0; i < tableSize; i++) {
+			defTable.add(i, new DblyLinkList<Entry>());
+		}
 	}
 
+	
+	/**
+	 * isPrime() helper function
+	 * @param n
+	 * @return
+	 */
+	private static boolean isPrime(long n) {
+		if (n < 2)
+			return false;
+		if (n == 2 || n == 3)
+			return true;
+		if (n % 2 == 0 || n % 3 == 0)
+			return false;
+		long sqrtN = (long) Math.sqrt(n) + 1;
+		for (long i = 6L; i <= sqrtN; i += 6) {
+			if (n % (i - 1) == 0 || n % (i + 1) == 0)
+				return false;
+		}
+		return true;
+	}
+
+	
+	/**
+	 * nextPrime() helper function
+	 * @param previous
+	 * @return
+	 */
+	private static long nextPrime(long previous) {
+		  if (previous < 2L) { return 2L; }
+		  if (previous == 2L) { return 3L; }
+		  long next = 0L;
+		  int increment = 0;
+		  switch ((int)(previous % 6L)) {
+		    case 0: next = previous + 1L; increment = 4; break;
+		    case 1: next = previous + 4L; increment = 2; break;
+		    case 2: next = previous + 3L; increment = 2; break;
+		    case 3: next = previous + 2L; increment = 2; break;
+		    case 4: next = previous + 1L; increment = 2; break;
+		    case 5: next = previous + 2L; increment = 4; break;
+		  }
+		  while (!isPrime(next)) {
+		    next += increment;
+		    increment = 6 - increment;   // 2, 4 alternating
+		  }
+		  return next;
+		}
+
+	
 	/**
 	 * Converts a hash code in the range Integer.MIN_VALUE...Integer.MAX_VALUE
 	 * to a value in the range 0...(size of hash table) - 1.
@@ -47,8 +119,7 @@ public class HashTableChained implements Dictionary {
 	 **/
 
 	int compFunction(int code) {
-		// Replace the following line with your solution.
-		return 88;
+		return code % (int) tableSize;
 	}
 
 	/**
@@ -60,8 +131,16 @@ public class HashTableChained implements Dictionary {
 	 **/
 
 	public int size() {
-		// Replace the following line with your solution.
-		return 0;
+		int totalCount = 0;
+		
+		for(int index = 0; index < this.tableSize; index++){
+			DblyLinkList<Entry> keyValueList = defTable.get(index);
+			if(keyValueList.size() > 0){
+				totalCount += keyValueList.size();
+			}
+		}
+		
+		return totalCount;
 	}
 
 	/**
@@ -71,8 +150,15 @@ public class HashTableChained implements Dictionary {
 	 **/
 
 	public boolean isEmpty() {
-		// Replace the following line with your solution.
-		return true;
+		
+		for(int index = 0; index < this.tableSize; index++){
+			DblyLinkList<Entry> keyValueList = defTable.get(index);
+			if(keyValueList.size() > 0){
+				return true;
+			}
+		}
+		return false;
+		
 	}
 
 	/**
@@ -91,8 +177,15 @@ public class HashTableChained implements Dictionary {
 	 **/
 
 	public Entry insert(Object key, Object value) {
-		// Replace the following line with your solution.
-		return null;
+
+		Entry entry = new Entry();
+		entry.key = key;
+		entry.value = value;
+
+		DblyLinkList<Entry> keyValueList = defTable.get(compFunction(key
+				.hashCode()));
+		keyValueList.insertBack(entry);
+		return entry;
 	}
 
 	/**
@@ -109,7 +202,18 @@ public class HashTableChained implements Dictionary {
 	 **/
 
 	public Entry find(Object key) {
-		// Replace the following line with your solution.
+		
+		DblyLinkList<Entry> keyValueList = defTable.get(compFunction(key
+				.hashCode()));
+		
+		Iterator<Entry> itr = keyValueList.iterator();
+		while (itr.hasNext()) {
+			Entry element = itr.next();
+			if (element.key().equals(key)){
+				return element;
+			}
+		}
+
 		return null;
 	}
 
@@ -128,15 +232,38 @@ public class HashTableChained implements Dictionary {
 	 */
 
 	public Entry remove(Object key) {
-		// Replace the following line with your solution.
-		return null;
+		
+		DblyLinkList<Entry> keyValueList = defTable.get(compFunction(key
+				.hashCode()));
+		
+		Iterator<Entry> itr = keyValueList.iterator();
+		Entry element = null;
+		while (itr.hasNext()) {
+			element = itr.next();
+			if (element.key().equals(key)){
+				itr.remove();
+			}
+		}
+
+		return element;
 	}
 
 	/**
 	 * Remove all entries from the dictionary.
 	 */
 	public void makeEmpty() {
-		// Your solution here.
+		for(int index = 0; index < this.tableSize; index++){
+			
+			DblyLinkList<Entry> keyValueList = defTable.get(index);
+			if(keyValueList.size() > 0){
+				Iterator<Entry> itr = keyValueList.iterator();
+				while (itr.hasNext()) {
+					itr.next();
+					itr.remove();
+				}
+			}
+			
+		}
 	}
 
 }

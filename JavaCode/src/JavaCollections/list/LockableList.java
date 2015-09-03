@@ -4,28 +4,27 @@ import JavaCollections.list.DblyLinkList.DListNode;
 
 public class LockableList<T> extends DblyLinkList<T> {
 
-	
-	class LockableNode<T> extends DListNode<T>{
-		
+	class LockableNode extends DListNode {
+
 		/**
 		 * lock the node during creation of a node.
 		 */
-		private boolean lock; 
-		
-		
+		private boolean lock;
+
+		LockableNode(T item, DListNode p,
+				DListNode n) {
+			super(item, p, n); // this does not work
+			this.lock = false;
+		}
 
 	}
-	
-	
-	LockableNode<T> newNode(T item, DListNode<T> prev, DListNode<T> next) {
-	    return new LockableNode(item, prev, next);
-	 }
-	 
-	public LockableList(){
+
+	LockableNode newNode(T item, DListNode prev, DListNode next) {
+		return new LockableNode(item, prev, next);
+	}
+
+	public LockableList() {
 		this.sentinel = this.newNode(null, this.sentinel, this.sentinel);
 	}
-	 
-	 
-	
 
 }
