@@ -40,7 +40,7 @@ public class NestedInterfaceInInterface {
 
 	public static void main(String[] args) {
 		Node<K,V>[] newTab = (Node<K,V>[])new Node[10];
-		//Node<String,String>[] newTab = (Node<String,String>[])new Node[10];  // this works
+		//Node<String,String>[] newTab = (Node<String,String>[])new Node[10];
 		
 
 	}
