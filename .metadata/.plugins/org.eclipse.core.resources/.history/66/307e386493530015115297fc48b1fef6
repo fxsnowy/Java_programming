@@ -1,0 +1,19 @@
+interface SuperInterface{
+	void f();
+	interface StaticNestedInterface{	
+	}
+}
+
+class Sub implements SuperInterface{
+	public void f(){
+		
+	}
+}
+
+public class Dummy {
+
+	public static void main(String[] args) {
+		Sub x  = new Sub();
+	}
+
+}

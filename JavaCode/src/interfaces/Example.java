@@ -13,8 +13,11 @@ package interfaces;
  * 
  * From java 1.8, Syntactically, an interface is a reference type, 
  * that can contain abstract methods, default methods and static
- * methods. All abstract, default, and static methods in an interface
- * are implicitly public, so you can omit the public modifier.
+ * methods. 
+ * 
+ * All abstract, default, and static methods in an interface are implicitly 
+ * public, so you can omit the public modifier. interface fields are 
+ * "public final"(by default)
  * 
  * In addition, an interface can contain constant declarations.
  * All constant values defined in an interface are implicitly
@@ -28,23 +31,24 @@ package interfaces;
  * 
  * Interfaces cannot be marked final.
  * 
+ * 
  */
 
 interface A{
 	abstract void f();
 	
-	public void g();
+	public void g(); //abstract method
 	
-	public default void h(){
+	public default void h(){ //default method
 		System.out.println("default method");
 	}
 	
-	static void k(){
+	static void k(){ //static method
 		System.out.println("static method");
 	}
 	
-	int CONST_1 = 1;
-	
+	int CONST_1 = 1; // an interface field is automatically "public final"
+
 }
 
 interface I{}

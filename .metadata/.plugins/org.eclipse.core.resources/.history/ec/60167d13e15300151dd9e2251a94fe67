@@ -1,0 +1,80 @@
+package StaticMemberClasses;
+
+/*
+ * An interface is a static interface, when declared as a member of
+ * a top level interface.
+ * 
+ * An interface within an interface can only be public.
+ * 
+ * 
+ */
+
+
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Set;
+import java.io.Serializable;
+
+
+interface Map<K,V> {
+
+	int size();
+    boolean isEmpty();
+    boolean containsKey(Object key);
+    boolean containsValue(Object value);
+    V get(Object key);
+    V put(K key, V value);
+    V remove(Object key);
+    void putAll(Map<? extends K, ? extends V> m);
+    void clear();
+    Set<K> keySet();
+    Collection<V> values();
+    Set<Map.Entry<K, V>> entrySet();
+    boolean equals(Object o);
+    int hashCode();
+
+    interface Entry<K,V> {// A nested interface can only be "public static".
+        K getKey();
+        V getValue();
+        V setValue(V value);
+        boolean equals(Object o);
+        int hashCode();
+        public static <K extends Comparable<? super K>, V> Comparator<Map.Entry<K,V>> comparingByKey() {
+            return (Comparator<Map.Entry<K, V>> & Serializable)
+                (c1, c2) -> c1.getKey().compareTo(c2.getKey());
+        }
+    }
+
+}
+
+
+class Node<K,V> implements Map.Entry<K, V>{
+
+	@Override
+	public K getKey() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public V getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public V setValue(V value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
+
+
+public class NestedInterfaceInInterface {
+
+	public static void main(String[] args) {
+		Node<K,V>[] newTab = (Node<K,V>[])new Node[10];
+
+	}
+}

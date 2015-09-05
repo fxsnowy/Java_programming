@@ -1,0 +1,17 @@
+package StaticMemberClasses;
+
+class Foo {
+    public interface Bar {
+        void callback();
+    }
+    public static void registerCallback(Bar bar) {}
+}
+
+public class NestedInterfaceInClass {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,17 @@
+interface X{
+	interface Y{
+		
+	}
+}
+
+class Sub implements X{
+	
+}
+
+public class Dummy {
+
+	public static void main(String[] args) {
+		Sub x  = new Sub();
+		
+	} 
+}

@@ -1,0 +1,27 @@
+package StaticMemberClasses;
+
+/*
+ * An interface is a static interface, when declared as a member of
+ * a top level class with given public/private/protected/default 
+ * access specifier.
+ * 
+ * 
+ */
+
+class Foo {
+	interface Bar { // A nested interface is automatically "static" with 
+					// given public/private/protected/default access specifier.
+        void callback();
+    }
+    public static void registerCallback(Bar bar) { }
+}
+
+public class NestedInterfaceInClass {
+	public static void main(String[] args) {
+		
+		Foo.registerCallback(new Foo.Bar() {
+		    public void callback() { }
+		});
+		
+	}
+}

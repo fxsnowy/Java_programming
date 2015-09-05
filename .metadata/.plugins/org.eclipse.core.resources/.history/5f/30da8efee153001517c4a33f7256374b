@@ -1,0 +1,47 @@
+package StaticMemberClasses;
+
+/*
+ * An interface is a static interface, when declared as a member of
+ * a top level interface.
+ * 
+ * An interface within an interface can only be public.
+ * 
+ * 
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+class Node<K,V> implements Map.Entry<K, V>{
+
+	@Override
+	public K getKey() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public V getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public V setValue(V value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
+
+
+public class NestedInterfaceInInterface {
+
+	public static void main(String[] args) {
+		SuppressWarnings({"rawtypes","unchecked"})
+		//List<Node<K,V>> newTab = new ArrayList<Node<K,V>>();
+		Node<K,V>[] newTab = (Node<K,V>[])new Node[10];
+
+	}
+}

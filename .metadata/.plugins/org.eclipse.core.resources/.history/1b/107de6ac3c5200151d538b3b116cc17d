@@ -1,0 +1,16 @@
+package Constructors_Initialization;
+
+/*
+ * A stand alone program starts at the method main declared as:
+ * 
+ * 		public static void main(String[] args)
+ * 	 or public static void main(String... args)
+ * 
+ * The arguments are the parameters passed on the command line.
+ * 
+ * 
+ */
+public class startup {
+
+	
+}

@@ -1,0 +1,13 @@
+package Constructors_Initialization;
+
+/*
+ * When you start the initialization of a class or interface it gets 
+ * flagged as 'undergoing initialization'
+ */
+public class AccessBeforeInitialization {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

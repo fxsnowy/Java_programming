@@ -1,0 +1,17 @@
+interface X{
+	interface Y{
+		
+	}
+}
+
+
+
+
+public class Dummy implements X{
+
+	
+	
+    public static void main(String[] args) {
+    	
+	} 
+}

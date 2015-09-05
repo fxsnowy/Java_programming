@@ -1,0 +1,19 @@
+interface X{
+	interface Y{
+		
+	}
+}
+
+
+
+
+public class Dummy implements X{
+
+	class D implements X.Y{
+		
+	}
+	
+    public static void main(String[] args) {
+    	new X();
+	} 
+}

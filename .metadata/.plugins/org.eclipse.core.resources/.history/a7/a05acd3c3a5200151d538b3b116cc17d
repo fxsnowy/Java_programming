@@ -1,0 +1,9 @@
+package Constructors_Initialization;
+
+public class AccessBeforeInitialization {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

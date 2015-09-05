@@ -1,0 +1,16 @@
+package Constructors_Initialization;
+
+/*
+ * When you start the initialization of a class or interface it gets 
+ * flagged as 'undergoing initialization'. Then(for a class C) we 
+ * start the initialization of the Superclass S (if it hasn't been 
+ * done yet). During initializing it's possible to call a static 
+ * method in C. Such a call would require C to be initialized.  
+ */
+public class AccessBeforeInitialization {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

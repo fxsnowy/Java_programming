@@ -1,0 +1,20 @@
+interface X{
+	interface Y{
+		
+	}
+}
+
+
+
+
+public class Dummy {
+
+	static class X{
+		
+	}
+
+	
+    public static void main(String[] args) {
+    	new X();
+	} 
+}

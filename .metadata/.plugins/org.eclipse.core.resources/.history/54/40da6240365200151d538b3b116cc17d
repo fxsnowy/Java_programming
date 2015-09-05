@@ -1,0 +1,64 @@
+package Constructors_Initialization;
+
+/*
+ * 1) It is about the process of setting the static fields in classes 
+ * and interfaces.
+ * 
+ * 2) Initialization is done using 'static initialization blocks'.
+ * The same rules for forward references apply as for instance 
+ * initialization.
+ * 
+ * 
+ * 3) Initialization takes place at various times sp there is no clearly
+ * related thread of execution; therefore if a checked exception is thrown
+ * it has to be caught (because there is nowhere for it to propagate to).
+ *   
+ * 4) Execution of any static initializers and static field initializers 
+ * occurs in the order they are declared except in the case of 'static final
+ * fields which are initialized with compile time constants', these are set 
+ * first before anything else. 
+ * 
+ * 5) Initializing a class causes its direct superclass to be initialized 
+ * first (unless they are already initialized), it does not cause any 
+ * implemented interfaces to be initialized. Initializing any interface does 
+ * not cause its super interfaces to be initialized.
+ * 
+ * 
+ * 
+ */
+class Z{
+	static int peekj(){
+		return j;
+	}
+	static int peekk(){
+		return k;
+	}
+	static int i = peekj();
+	static int h = peekk();
+	static final int j = 1;
+	static int k = 1;
+}
+
+
+class Super{
+	static{
+		System.out.print("Super");
+	}
+}
+
+class Two extends Super{
+	static{
+		System.out.print("Two");
+	}
+}
+
+
+public class ClassAndInterfaceInitialization {
+	public static void main(String[] args) {
+		
+		System.out.println(Z.i);
+		System.out.println(Z.h);
+		
+		
+	}
+}

@@ -1,0 +1,35 @@
+package Constructors_Initialization;
+
+/*
+ * When you start the initialization of a class or interface it gets 
+ * flagged as 'undergoing initialization'. Then(for a class C) we 
+ * start the initialization of the Superclass S (if it hasn't been 
+ * done yet). During initializing it's possible to call a static 
+ * method in C. Such a call would require C to be initialized, however
+ * because C is flagged as 'undergoing initialization' a second 
+ * initialization attempt is not made and it's regarded as initialized.
+ * This avoids what would be a recursive loop but it gives access to
+ * fields in C before they have been initialized. In this case they 
+ * have default value (zero for primitives null for references).
+ *   
+ */
+
+class Bar{
+	static{
+		System.out.println("In Bar init");
+		Baz.test();
+	}
+}
+
+class Baz extends Bar{
+	static int i;
+	
+}
+
+public class AccessBeforeInitialization {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package Constructors_Initialization;
+
+/*
+ * A stand alone program starts at the method main declared as:
+ * 
+ * 		public static void main(String[] args)
+ * 	 or public static void main(String... args)
+ * 
+ * 
+ */
+public class startup {
+
+	
+}

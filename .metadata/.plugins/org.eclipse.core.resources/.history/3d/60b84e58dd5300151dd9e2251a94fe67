@@ -1,0 +1,12 @@
+class X{
+	interface I{
+		
+	}
+	void registerCallbak(I i){ }
+}
+public  class Dummy {
+
+	public static void main(String[] args) {
+	}
+
+}
