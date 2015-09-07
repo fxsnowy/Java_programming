@@ -1,0 +1,30 @@
+package StaticMemberClasses;
+
+/*
+ * As far as the virtual machine is concerned all classes are top
+ * level classes no special support is required for nested classes.
+ * 
+ * Nesting is all handled by compiler transformation.
+ * 
+ * The transformation adds 'access' methods for private methods and
+ * fields as shown below:
+ * 
+ *  
+ */
+
+class Outer{
+	private static int i;
+	private static void test() { }
+	private static class Inside{
+		private static int j;
+		int k;
+		void accessTest(){
+			int x = i;
+			test();
+		}
+	}
+	
+}
+public class TruthAboutNestedClasses {
+
+}

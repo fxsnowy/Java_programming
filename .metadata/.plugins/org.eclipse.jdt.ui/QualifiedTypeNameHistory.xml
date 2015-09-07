@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Float"/>
-<fullyQualifiedTypeName name="java.util.Locale"/>
 <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
 <fullyQualifiedTypeName name="interfaces.Example"/>
 <fullyQualifiedTypeName name="interfaces.Example.I"/>
@@ -54,4 +52,12 @@
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.Collections.UnmodifiableCollection"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.Top.N2"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.Top.J"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.Top.J.N1"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.Top.Nest1"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.Top.Nest1.I"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.A.B"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,36 @@
+package StaticMemberClasses;
+
+import java.io.Serializable;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+
+
+
+/*class Collections {
+	
+    static class UnmodifiableCollection<E> implements Serializable {
+    	
+    }
+    
+    static class UnmodifiableRandomAccessList<E>{
+    	
+    }
+    
+}*/
+
+
+/*
+ * Usage would be like 'Collections.UnmodifiableCollection.method'
+ * 
+ */
+
+public class NestedClassInClass {
+
+	public static void main(String[] args) {
+		//Collections.UnmodifiableCollection<String> = new Collections.UnmodifiableCollection<String>();
+		Collections.unmodifiableCollection(c)
+	}
+	
+}

@@ -1,0 +1,91 @@
+package StaticMemberClasses;
+
+/*
+ * As far as the virtual machine is concerned all classes are top
+ * level classes no special support is required for nested classes.
+ * 
+ * Nesting is all handled by compiler transformation.
+ * 
+ * The transformation adds 'access' methods for private methods and
+ * fields as shown below:
+ * 
+ * 
+ *  
+ *  class Outer$Inside {
+ *      private static int j;
+ *      int k;
+ *      void accessTest(){
+ *          int x = Outer.access$000();
+ *          Outer.access$100();
+ *      }
+ *      
+ *      static int access$200(){
+ *          return j;
+ *      }
+ *  }
+ *  
+ *  class Outer{
+ *      private static int i;
+ *      private static void test(){ }
+ *      void accessTest(){
+ *          i = Outer$Inside.access$200();
+ *          i = new Outer$Inside().k;
+ *      }
+ *      
+ *      static int access$000(){ return j; }
+ *      static void access$100(){ test(); } 
+ *  }
+ *  
+ *  
+ */
+
+class Outer{
+	private static int i;
+	private static void test() { }
+	private static class Inside{
+		private static int j;
+		int k;
+		void accessTest(){
+			int x = i;
+			test();
+		}
+	}
+	void accessTest(){
+		i = Inside.j;
+		i = new Inside().k;
+	}
+	
+}
+
+
+/*
+ * As shown above, Nested classes have their names altered to the '$' form 
+ * and are separated from the enclosing class. Access to private methods or 
+ * field then need special 'access' method to be added.
+ * 
+ * (Protected, default and public access is automatically accessible because 
+ * the '$' form is in the same package).   
+ */
+
+
+/*
+ * It goes without saying access to any fields in a private class from outside
+ * the enclosing class is prohibited by the compiler, as shown below.
+ */
+class Out{
+	private static class In{
+		public static int x;
+		public int i;
+	}
+}
+
+public class TruthAboutNestedClasses {
+	int z;
+	void test(){
+		z = new (Out.In()).i;
+		z = Out.In.x;
+	}
+	public static void main(){
+		
+	}
+}

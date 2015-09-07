@@ -6,7 +6,7 @@ package StaticMemberClasses;
  * 
  * An interface within a class is package-private, by default.
  * 
- * An interface within a class can be private/protected/public/package-private.
+ * All accessibility modifiers are available to the static member interface.
  * 
  */
 
