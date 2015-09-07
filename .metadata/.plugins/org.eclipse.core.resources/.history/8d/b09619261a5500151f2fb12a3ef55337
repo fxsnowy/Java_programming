@@ -1,0 +1,22 @@
+package StaticMemberClasses;
+
+/*
+ * An interface is a static interface, when declared as a member of
+ * a top level interface.
+ * 
+ * An interface within an interface can only be public.
+ * 
+ * 
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+
+public class NestedInterfaceInInterface {
+
+	public static void main(String[] args) {
+		
+	}
+}

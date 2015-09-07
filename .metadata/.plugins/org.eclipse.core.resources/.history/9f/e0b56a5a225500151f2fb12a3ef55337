@@ -1,0 +1,72 @@
+package StaticMemberClasses;
+
+import java.util.List;
+
+
+/*
+ * class within interface is automatically 'public static'.
+ * 
+ */
+
+interface Input{
+	
+	public static class KeyEvent{
+		public static final int KEY_DOWN = 0;
+		public static final int KEY_UP = 0;
+		public int type;
+		public int keyCode;
+		public int keyChar;
+	}
+	
+	public static class TouchEvent{
+		public static final int TOUCH_DOWN = 0;
+		public static final int TOUCH_UP =0;
+		public static final int TOUCH_DRAGGED = 2;
+		public int type;
+		public int x, y;
+		public int pointer;
+	}
+	
+	public boolean isKeyPressed(int keyCode);
+	public boolean isTouchDown(int pointer);
+	public int getTouchX(int pointer);
+	public int getTouchY(int pointer);
+	public float getAccelX();
+	public float getAccelY();
+	public float getAccelZ();
+	public List<KeyEvent> getKeyEvents();
+	public List<TouchEvent> getTouchEvents(); 
+}
+
+interface User {
+    public enum Role {
+        ADMIN("administrator"),
+        EDITOR("editor"),
+        VANILLA("regular user");
+
+        private String description;
+
+        private Role(String description) {
+            this.description = description;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
+
+    public String getName();
+    public void setName(String name);
+    public Role getRole();
+    public void setRole(Role role);
+ 
+}
+
+public class ClassInInterface {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -46,6 +46,7 @@
 <fullyQualifiedTypeName name="java.util.ConcurrentModificationException"/>
 <fullyQualifiedTypeName name="StaticMemberClasses.Map.Entry"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.Input.KeyEvent"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

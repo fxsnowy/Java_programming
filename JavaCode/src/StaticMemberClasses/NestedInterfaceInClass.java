@@ -13,6 +13,7 @@ package StaticMemberClasses;
 interface I{
 	void f();
 }
+
 class Foo {
 	interface Bar { 
         void callback();
@@ -30,6 +31,7 @@ public class NestedInterfaceInClass {
 				
 			}
 		});
+		
 		Foo.registerCallback(new Foo.Bar() {
 		    public void callback() { }
 		});
