@@ -1,0 +1,56 @@
+package StaticMemberClasses;
+
+/*
+ * You can't access instance fields or methods in the top level class directly
+ * from a Static Method Class(SMC) but you can if you have a reference to an 
+ * object of that class. 
+ * 
+ * Where this occurs the compiler will provide access methods if the field or
+ * method is private furthermore this access method will need to take a 
+ * parameter which is a reference to an instance of the top level class,
+ * as shown below:
+ * 
+ *    class OuterOne{
+ *        private int i;
+ *        private void m() { }
+ *        static void access$000(OuterOne _1){ //Compiler invent names that contain '$'
+ *            _1.m();
+ *        }
+ *        static int access$102(OuterOne _1, int _2){
+ *            return _1.i = _2;
+ *        }
+ *    }
+ *    
+ *    class OuterOne$InnerOne{
+ *        static void test(OuterOne o){
+ *            OuterOne.access$000(o);
+ *            OuterOne.access$102(o, 99);
+ *        }
+ *    }
+ *    
+ *            
+ * 
+ */
+
+class E extends java.lang.Exception{ }
+
+class OuterOne{
+	private long i;
+	private void m() throws E { }
+	static class InnerOne{
+		static void test(OuterOne o) throws E{
+			o.m();
+			o.i = 99;
+		}
+	}
+}
+
+/*
+ * If you are trying to access a private method and the method throws an 
+ * exception then the access method will have to do the same.
+ * 
+ */
+
+public class TruthAboutInstanceMembers {
+	
+}
