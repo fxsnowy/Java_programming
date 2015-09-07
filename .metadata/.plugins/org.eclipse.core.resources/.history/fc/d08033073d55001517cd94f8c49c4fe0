@@ -27,33 +27,6 @@ import java.io.Serializable;
  * Include the transient modifier in the instance field's declaration. 
  * Below code presents a small demonstration.
  * 
- * 'TransientKeywordDemo' is an application class that serializes and 
- * deserializes a 'ClassLib' instance.
- * 
- * 'ClassLib' declares its 'is' instance field transient because it makes 
- * no sense to serialize an input stream (as previously explained). In fact,
- * if this field wasn't transient, a 'java.io.NotSerializableException' 
- * would be thrown when deserializing `x.ser`'s contents because InputStream
- * doesn't implement the Serializable interface.
- * 
- * Compile below code:
- *          javac TransientKeywordDemo.java
- * 
- * Run this application with TransientKeywordDemo.class as its single argument: 
- *          java TransDemo TransDemo.class
- * 
- * Output shows:
- *    ClassLib(InputStream) called
- *    Minor version number: 0
- *    Major version number: 51
- *    java.io.FileInputStream@79f1e0e0
- *    
- *    Minor version number: 0
- *    Major version number: 51
- *    null
- *
- * The above shows that no constructor is invoked when the object is reconstituted.
- *  
  */
 
 public class TransientKeywordDemo {

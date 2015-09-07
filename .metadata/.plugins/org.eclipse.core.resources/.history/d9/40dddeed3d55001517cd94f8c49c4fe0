@@ -52,8 +52,7 @@ import java.io.Serializable;
  *    Major version number: 51
  *    null
  *
- * The above shows that no constructor is invoked when the object is reconstituted.
- *  
+ * The above shows that no constructor is invoked when the object is reconstituted. 
  */
 
 public class TransientKeywordDemo {
