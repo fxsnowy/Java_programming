@@ -1,0 +1,45 @@
+package Serialization;
+
+import java.io.Serializable;
+
+/*
+ * 
+ */
+
+class Foo implements Serializable {
+	public static int w = 1;
+	public static transient int x = 2;
+	public int y = 3;
+	public transient int z = 4;
+}
+
+public class TransientKeywordOnStaticField {
+
+	public static void main(String[] args) {
+		Foo foo = new Foo();
+		System.out.printf("w: %d%n", Foo.w);
+		System.out.printf("x: %d%n", Foo.x);
+		System.out.printf("y: %d%n", foo.y);
+		System.out.printf("z: %d%n", foo.z);
+		try (FileOutputStream fos = new FileOutputStream("x.ser");
+				ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+			oos.writeObject(foo);
+		}
+
+		foo = null;
+
+		try (FileInputStream fis = new FileInputStream("x.ser");
+				ObjectInputStream ois = new ObjectInputStream(fis)) {
+			System.out.println();
+			foo = (Foo) ois.readObject();
+			System.out.printf("w: %d%n", Foo.w);
+			System.out.printf("x: %d%n", Foo.x);
+			System.out.printf("y: %d%n", foo.y);
+			System.out.printf("z: %d%n", foo.z);
+		} catch (ClassNotFoundException cnfe) {
+			System.err.println(cnfe.getMessage());
+		}
+
+	}
+
+}

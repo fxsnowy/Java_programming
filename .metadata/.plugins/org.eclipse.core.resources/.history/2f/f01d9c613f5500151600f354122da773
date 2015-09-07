@@ -1,0 +1,14 @@
+package Serialization;
+
+
+/*
+ * 
+ */
+public class TransientKeywordOnStaticField {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
