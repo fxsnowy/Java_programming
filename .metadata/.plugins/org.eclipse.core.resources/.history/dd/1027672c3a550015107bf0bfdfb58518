@@ -1,0 +1,25 @@
+package Serialization;
+
+
+/*
+ * 1) The 'transient' keyword prevents the values of instance fields 
+ * that are declared with this keyword from being persisted when an 
+ * object is serialized (written as a sequence of bytes to some 
+ * destination). The values of such instance fields shouldn't be 
+ * persisted and later restored when an object is deserialized 
+ * (reconstituted from a sequence of bytes read from some source).
+ * 
+ * 2) For example, if your object has a field of type java.io.InputStream,
+ * you don't serialize this field's reference because the stream won't be
+ * open for input when you deserialize the object -- the stream source
+ * (e.g., a file) might not exist.
+ * 
+ */
+public class transientkeyword {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

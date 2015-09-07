@@ -1,0 +1,95 @@
+package Serialization;
+
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+/*
+ * 1) The 'transient' keyword prevents the values of instance fields 
+ * that are declared with this keyword from being persisted when an 
+ * object is serialized (written as a sequence of bytes to some 
+ * destination). The values of such instance fields shouldn't be 
+ * persisted and later restored when an object is deserialized 
+ * (reconstituted from a sequence of bytes read from some source).
+ * 
+ * 2) For example, if your object has a field of type java.io.InputStream,
+ * you don't serialize this field's reference because the stream won't be
+ * open for input when you deserialize the object -- the stream source
+ * (e.g., a file) might not exist.
+ * 
+ * How do I use transient?
+ *
+ * Include the transient modifier in the instance field's declaration. 
+ * Below code presents a small demonstration.
+ * 
+ */
+
+class ClassLib implements Serializable {
+	private transient InputStream is;
+
+	private int majorVer;
+	private int minorVer;
+
+	ClassLib(InputStream is) throws IOException {
+		System.out.println("ClassLib(InputStream) called");
+		this.is = is;
+		DataInputStream dis;
+		if (is instanceof DataInputStream)
+			dis = (DataInputStream) is;
+		else
+			dis = new DataInputStream(is);
+		if (dis.readInt() != 0xcafebabe)
+			throw new IOException("not a .class file");
+		minorVer = dis.readShort();
+		majorVer = dis.readShort();
+	}
+
+	int getMajorVer() {
+		return majorVer;
+	}
+
+	int getMinorVer() {
+		return minorVer;
+	}
+
+	void showIS() {
+		System.out.println(is);
+	}
+}
+
+public class TransientKeywordDemo {
+
+	public static void main(String[] args) throws IOException{
+		if (args.length != 1) {
+			System.err.println("usage: java TransDemo classfile");
+			return;
+		}
+		ClassLib cl = new ClassLib(new FileInputStream(args[0]));
+		System.out.printf("Minor version number: %d%n", cl.getMinorVer());
+		System.out.printf("Major version number: %d%n", cl.getMajorVer());
+		cl.showIS();
+
+		try (FileOutputStream fos = new FileOutputStream("x.ser");
+				ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+			oos.writeObject(cl);
+		}
+
+		cl = null;
+
+		try (FileInputStream fis = new FileInputStream("x.ser");
+				ObjectInputStream ois = new ObjectInputStream(fis)) {
+			System.out.println();
+			cl = (ClassLib) ois.readObject();
+			System.out.printf("Minor version number: %d%n", cl.getMinorVer());
+			System.out.printf("Major version number: %d%n", cl.getMajorVer());
+			cl.showIS();
+		} catch (ClassNotFoundException cnfe) {
+			System.err.println(cnfe.getMessage());
+		}
+	}
+}

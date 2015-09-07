@@ -15,7 +15,6 @@ import JavaCollections.list.DblyLinkList;
  * Integer.MAX_VALUE. The HashTableChained class implements only the compression
  * function, which maps the hash code to a bucket in the table's range.
  *
- * DO NOT CHANGE ANY PROTOTYPES IN THIS FILE.
  **/
 
 public class HashTableChained implements Dictionary {

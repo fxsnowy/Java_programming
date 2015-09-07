@@ -1,0 +1,67 @@
+package Serialization;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
+
+/*
+ * 1) The 'transient' keyword prevents the values of instance fields 
+ * that are declared with this keyword from being persisted when an 
+ * object is serialized (written as a sequence of bytes to some 
+ * destination). The values of such instance fields shouldn't be 
+ * persisted and later restored when an object is deserialized 
+ * (reconstituted from a sequence of bytes read from some source).
+ * 
+ * 2) For example, if your object has a field of type java.io.InputStream,
+ * you don't serialize this field's reference because the stream won't be
+ * open for input when you deserialize the object -- the stream source
+ * (e.g., a file) might not exist.
+ * 
+ * How do I use transient?
+ *
+ * Include the transient modifier in the instance field's declaration. 
+ * Below code presents a small demonstration.
+ * 
+ */
+
+class ClassLib implements Serializable {
+	private transient InputStream is;
+
+	private int majorVer;
+	private int minorVer;
+
+	ClassLib(InputStream is) throws IOException {
+		System.out.println("ClassLib(InputStream) called");
+		this.is = is;
+		DataInputStream dis;
+		if (is instanceof DataInputStream)
+			dis = (DataInputStream) is;
+		else
+			dis = new DataInputStream(is);
+		if (dis.readInt() != 0xcafebabe)
+			throw new IOException("not a .class file");
+		minorVer = dis.readShort();
+		majorVer = dis.readShort();
+	}
+
+	int getMajorVer() {
+		return majorVer;
+	}
+
+	int getMinorVer() {
+		return minorVer;
+	}
+
+	void showIS() {
+		System.out.println(is);
+	}
+}
+
+public class transientkeyword {
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package Serialization;
+
+/*
+ * To re-create the object from the persistent file, you would employ the code below
+ */
+
+public class JavaDeSerialization  {
+
+	public static void main(String[] args) throws IOException{
+		
+
+	}
+
+}

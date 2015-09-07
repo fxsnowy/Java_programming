@@ -1,0 +1,22 @@
+package Serialization;
+
+/*
+ * 
+ * 1) A typical enterprise application will have multiple components
+ * and will be distributed across various systems and networks. In 
+ * Java, everything is represented as objects; if two Java components 
+ * want to communicate with each other, there needs be a mechanism to 
+ * exchange data. One way to achieve this is to define your own protocol 
+ * and transfer an object. This means that the receiving end must know
+ * the protocol used by the sender to re-create the object, which would 
+ * make it very difficult to talk to third-party components. Hence, there 
+ * needs to be a generic and efficient protocol to transfer the object 
+ * between components. Serialisation is defined for this purpose, and 
+ * Java components use this protocol to transfer objects.
+ * 
+ * 
+ * 
+ */
+public class JavaSerialization {
+
+}

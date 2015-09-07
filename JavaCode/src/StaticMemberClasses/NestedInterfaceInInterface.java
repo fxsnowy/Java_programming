@@ -11,9 +11,9 @@ package StaticMemberClasses;
  */
 
 
-
 interface Map<K,V> {
 	
+	int i = 0;
     interface Entry<K,V> {
         K getKey();
         V getValue();
@@ -51,6 +51,7 @@ class HashMap<K,V> implements Map<K, V>{
 		}
 		
 	}
+	
 }
  
 public class NestedInterfaceInInterface {
@@ -59,3 +60,5 @@ public class NestedInterfaceInInterface {
 		
 	}
 }
+
+

@@ -1,0 +1,88 @@
+package Serialization;
+
+/*
+ * 
+ * 1) A typical enterprise application will have multiple components
+ * and will be distributed across various systems and networks. In 
+ * Java, everything is represented as objects; if two Java components 
+ * want to communicate with each other, there needs be a mechanism to 
+ * exchange data. One way to achieve this is to define your own protocol 
+ * and transfer an object. This means that the receiving end must know
+ * the protocol used by the sender to re-create the object, which would 
+ * make it very difficult to talk to third-party components. Hence, there 
+ * needs to be a generic and efficient protocol to transfer the object 
+ * between components. Serialisation is defined for this purpose, and 
+ * Java components use this protocol to transfer objects.
+ * 
+ * How to serialise an object?
+ * 
+ * In order to serialise an object, you need to ensure that the class of
+ * the object implements the java.io.Serializable interface, as shown below,
+ * 
+ */
+
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+class TestSerial implements Serializable {
+	public byte version = 100;
+	public byte count = 0;
+}
+
+
+/*
+ * The Serializable interface is a marker interface; it declares no methods 
+ * at all. It tells the serialization mechanism that the class can be serialized.
+ * 
+ * 
+ * Now that you have made the class eligible for serialization, the next step is
+ * to actually serialize the object. That is done by calling the writeObject() 
+ * method of the java.io.ObjectOutputStream class, as shown below,
+ */
+
+public class JavaSerialization {
+	public static void main(String[] args) throws IOException {
+		FileOutputStream fos = new FileOutputStream("temp.out");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		TestSerial ts = new TestSerial();
+		oos.writeObject(ts);
+		oos.flush();
+		oos.close();
+	}
+}
+
+/*
+ * Above code stores the state of the 'TestSerial' object in a file called temp.out.
+ *
+ * 'oos.writeObject(ts);' actually kicks off the serialization algorithm, which in 
+ * turn writes the object to temp.out.
+ * 
+ */
+
+/*
+ * What does the serialized version of the object look like? 
+ * Remember, above sample code saved the serialized version of the TestSerial 
+ * object into the file temp.out. Below shows the contents of temp.out, 
+ * displayed in hexadecimal. (You need a hexadecimal editor to see the output 
+ * in hexadecimal format.)
+ * 
+ * AC ED 00 05 73 72 00 0A 53 65 72 69 61 6C 54 65
+ * 73 74 A0 0C 34 00 FE B1 DD F9 02 00 02 42 00 05
+ * 63 6F 75 6E 74 42 00 07 76 65 72 73 69 6F 6E 78
+ * 70 00 64
+ * 
+ * 
+ */ 
+
+
+/*
+ * If you look again at the actual TestSerial object, you'll see that it
+ * has only two byte members
+ * 
+ *  public byte version = 100;
+ *  public byte count = 0;
+ *  
+ */ 

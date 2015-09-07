@@ -1,0 +1,9 @@
+package JavaCollections;
+
+/*
+ * The load factor represents at what level the HashMap/HashTable 
+ * capacity should be doubled.
+ */
+public class HashTable {
+
+}

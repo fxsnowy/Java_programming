@@ -1,0 +1,21 @@
+package Serialization;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+/*
+ * To re-create the object from the persistent file, you would employ the code below
+ */
+
+public class JavaDeSerialization  {
+
+	public static void main(String[] args) throws IOException{
+		FileInputStream fis = new FileInputStream("temp.out");
+		ObjectInputStream oin = new ObjectInputStream(fis);
+		TestSerial ts = (TestSerial) oin.readObject();
+		System.out.println("version="+ts.version);
+
+	}
+
+}
