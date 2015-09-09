@@ -35,16 +35,16 @@ public interface Dictionary<K, V> {
 	 *  Dictionary ADT.
 	 **/
 	
-	class Entry<K, V> { // class within interface is automatically 'public static'.
+	public static class Entry { // class within interface is automatically 'public static'.
 
 		protected K key;
-		protected V value;
+		protected Object value;
 
-		public K key() {
+		public Object key() {
 			return key;
 		}
 
-		public V value() {
+		public Object value() {
 			return value;
 		}
 
@@ -63,7 +63,7 @@ public interface Dictionary<K, V> {
 	 * @return an entry containing the key and value.
 	 **/
 
-	public Entry<K, V> insert(K key, V value);
+	public Entry insert(Object key, Object value);
 
 	/**
 	 * Search for an entry with the specified key. If such an entry is found,
@@ -76,7 +76,7 @@ public interface Dictionary<K, V> {
 	 *         no entry contains the specified key.
 	 **/
 
-	public Entry<K, V> find(K key);
+	public Entry find(Object key);
 
 	/**
 	 * Remove an entry with the specified key. If such an entry is found, remove
@@ -90,7 +90,7 @@ public interface Dictionary<K, V> {
 	 *         no entry contains the specified key.
 	 */
 
-	public Entry<K, V> remove(K key);
+	public Entry remove(Object key);
 
 	/**
 	 * Remove all entries from the dictionary.

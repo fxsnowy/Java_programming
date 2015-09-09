@@ -200,14 +200,14 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	 *         no entry contains the specified key.
 	 **/
 
-	public Entry<K, V> find(K key) {
+	public Entry find(K key) {
 		
 		DblyLinkList<Entry<K, V>> keyValueList = defTable.get(compFunction(key
 				.hashCode()));
 		
-		Iterator<Entry<K, V>> itr = keyValueList.iterator();
+		Iterator<Entry> itr = keyValueList.iterator();
 		while (itr.hasNext()) {
-			Entry<K, V> element = itr.next();
+			Entry element = itr.next();
 			if (element.key().equals(key)){
 				return element;
 			}
@@ -230,13 +230,13 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	 *         no entry contains the specified key.
 	 */
 
-	public Entry<K, V> remove(K key) {
+	public Entry remove(Object key) {
 		
-		DblyLinkList<Entry<K, V>> keyValueList = defTable.get(compFunction(key
+		DblyLinkList<Entry> keyValueList = defTable.get(compFunction(key
 				.hashCode()));
 		
-		Iterator<Entry<K, V>> itr = keyValueList.iterator();
-		Entry<K, V> element = null;
+		Iterator<Entry> itr = keyValueList.iterator();
+		Entry element = null;
 		while (itr.hasNext()) {
 			element = itr.next();
 			if (element.key().equals(key)){
@@ -253,9 +253,9 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	public void makeEmpty() {
 		for(int index = 0; index < this.tableSize; index++){
 			
-			DblyLinkList<Entry<K, V>> keyValueList = defTable.get(index);
+			DblyLinkList<Entry> keyValueList = defTable.get(index);
 			if(keyValueList.size() > 0){
-				Iterator<Entry<K, V>> itr = keyValueList.iterator();
+				Iterator<Entry> itr = keyValueList.iterator();
 				while (itr.hasNext()) {
 					itr.next();
 					itr.remove();
@@ -264,9 +264,5 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 			
 		}
 	}
-	
-	public static void main(String[] args){
-		Dictionary<String, Integer> d = new HashTableChained<>();
-		
-	}
+
 }

@@ -113,6 +113,5 @@ class Keyboard implements Input{
 public class NestedClassInInterface {
 	public static void main(String[] args) {
 		Input.TouchEvent t = new Input.TouchEvent();
-		
 	}
 }

@@ -63,7 +63,7 @@ public interface Dictionary<K, V> {
 	 * @return an entry containing the key and value.
 	 **/
 
-	public Entry<K, V> insert(K key, V value);
+	public Entry insert(K key, V value);
 
 	/**
 	 * Search for an entry with the specified key. If such an entry is found,
@@ -76,7 +76,7 @@ public interface Dictionary<K, V> {
 	 *         no entry contains the specified key.
 	 **/
 
-	public Entry<K, V> find(K key);
+	public Entry find(K key);
 
 	/**
 	 * Remove an entry with the specified key. If such an entry is found, remove
@@ -90,7 +90,7 @@ public interface Dictionary<K, V> {
 	 *         no entry contains the specified key.
 	 */
 
-	public Entry<K, V> remove(K key);
+	public Entry remove(K key);
 
 	/**
 	 * Remove all entries from the dictionary.

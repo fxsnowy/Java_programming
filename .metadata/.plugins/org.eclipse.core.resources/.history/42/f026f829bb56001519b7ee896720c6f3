@@ -253,9 +253,9 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	public void makeEmpty() {
 		for(int index = 0; index < this.tableSize; index++){
 			
-			DblyLinkList<Entry<K, V>> keyValueList = defTable.get(index);
+			DblyLinkList<Entry> keyValueList = defTable.get(index);
 			if(keyValueList.size() > 0){
-				Iterator<Entry<K, V>> itr = keyValueList.iterator();
+				Iterator<Entry> itr = keyValueList.iterator();
 				while (itr.hasNext()) {
 					itr.next();
 					itr.remove();
@@ -264,9 +264,5 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 			
 		}
 	}
-	
-	public static void main(String[] args){
-		Dictionary<String, Integer> d = new HashTableChained<>();
-		
-	}
+
 }

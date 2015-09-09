@@ -21,7 +21,7 @@ interface Input{
 	
 	static class TouchEvent{
 		public static final int TOUCH_DOWN = 0;
-		public static final int TOUCH_UP =0;
+		private static final int TOUCH_UP =0;
 		public static final int TOUCH_DRAGGED = 2;
 		public int type;
 		public int x, y;

@@ -264,9 +264,5 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 			
 		}
 	}
-	
-	public static void main(String[] args){
-		Dictionary<String, Integer> d = new HashTableChained<>();
-		
-	}
+
 }

@@ -63,7 +63,7 @@ public interface Dictionary<K, V> {
 	 * @return an entry containing the key and value.
 	 **/
 
-	public Entry<K, V> insert(K key, V value);
+	public Entry insert(K key, V value);
 
 	/**
 	 * Search for an entry with the specified key. If such an entry is found,
