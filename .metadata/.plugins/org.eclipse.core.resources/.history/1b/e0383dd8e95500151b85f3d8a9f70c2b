@@ -1,0 +1,10 @@
+package NonStaticMemberClass;
+
+/*
+ * Any instance of the non-static member class MUST be associated with 
+ * an instance of the enclosing class.
+ */
+
+public class WorkingOfNSM {
+
+}

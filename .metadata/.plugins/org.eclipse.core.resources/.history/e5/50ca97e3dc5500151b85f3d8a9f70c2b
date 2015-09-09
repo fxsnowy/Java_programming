@@ -1,0 +1,13 @@
+package StaticMemberClasses;
+
+/*
+ * If a field in an enclosing class has the same name as an inherited 
+ * field the inherited field shadows the field in the enclosed class.
+ * By default the inherited field will be used. The same applies to two
+ * override equivalent methods.
+ * 
+ */
+
+public class HidingFieldsAndMethods {
+
+}

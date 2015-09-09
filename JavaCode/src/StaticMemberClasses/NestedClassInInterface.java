@@ -11,7 +11,7 @@ import java.util.List;
 
 interface Input{
 	
-	public static class KeyEvent{
+	static class KeyEvent{
 		public static final int KEY_DOWN = 0;
 		public static final int KEY_UP = 0;
 		public int type;
@@ -19,7 +19,7 @@ interface Input{
 		public int keyChar;
 	}
 	
-	public static class TouchEvent{
+	static class TouchEvent{
 		public static final int TOUCH_DOWN = 0;
 		public static final int TOUCH_UP =0;
 		public static final int TOUCH_DRAGGED = 2;
@@ -99,9 +99,9 @@ class Keyboard implements Input{
 
 	@Override
 	public List<TouchEvent> getTouchEvents() {
-		Input.TouchEvent obj1 = new Input.TouchEvent();
-		Input.TouchEvent obj2 = new Input.TouchEvent();
-		List<Input.TouchEvent> list = new ArrayList<Input.TouchEvent>();
+		TouchEvent obj1 = new TouchEvent();
+		TouchEvent obj2 = new TouchEvent();
+		List<TouchEvent> list = new ArrayList<TouchEvent>();
 		list.add(obj1);
 		list.add(obj2);
 		return list;
@@ -112,6 +112,6 @@ class Keyboard implements Input{
 
 public class NestedClassInInterface {
 	public static void main(String[] args) {
-
+		Input.TouchEvent t = new Input.TouchEvent();
 	}
 }

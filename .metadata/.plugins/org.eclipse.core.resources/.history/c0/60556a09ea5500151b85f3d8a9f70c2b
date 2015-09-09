@@ -1,0 +1,16 @@
+package NonStaticMemberClass;
+
+/*
+ * Any instance of the non-static member class MUST be associated with 
+ * an instance of the enclosing class.
+ * 
+ * An instance of the enclosing class does not have to be associated 
+ * with an instance of the inner class i.e., it is not forced to create
+ * one.
+ * 
+ * 
+ */
+
+public class WorkingOfNSM {
+
+}

@@ -1,0 +1,5 @@
+package StaticMemberClasses;
+
+public class HidingFieldsAndMethods {
+
+}

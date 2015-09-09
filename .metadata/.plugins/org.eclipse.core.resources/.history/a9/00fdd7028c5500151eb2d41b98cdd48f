@@ -1,0 +1,14 @@
+package StaticMemberClasses;
+
+/*
+ * Two SMCs nested in the same Top Level classes can access each others 
+ * 
+ */
+public class AccessBtwnSMC {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

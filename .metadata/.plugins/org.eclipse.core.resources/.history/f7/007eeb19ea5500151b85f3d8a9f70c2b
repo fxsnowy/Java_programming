@@ -1,0 +1,17 @@
+package NonStaticMemberClass;
+
+/*
+ * Any instance of the non-static member class MUST be associated with 
+ * an instance of the enclosing class.
+ * 
+ * An instance of the enclosing class does not have to be associated 
+ * with an instance of the inner class i.e., it is not forced to create
+ * one.
+ * 
+ * When you introduce a NSMC, you are not allowed to declare any interface
+ * not allowed to have any static methods.
+ */
+
+public class WorkingOfNSM {
+
+}

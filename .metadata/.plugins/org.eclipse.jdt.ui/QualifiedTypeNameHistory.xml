@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="interfaces.Example"/>
-<fullyQualifiedTypeName name="interfaces.Example.I"/>
-<fullyQualifiedTypeName name="java.lang.annotation.Target"/>
-<fullyQualifiedTypeName name="java.lang.annotation.Retention"/>
-<fullyQualifiedTypeName name="java.lang.annotation.ElementType"/>
 <fullyQualifiedTypeName name="java.lang.annotation.RetentionPolicy"/>
 <fullyQualifiedTypeName name="java.lang.annotation.Annotation"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="StaticMemberClasses.Top.Nest1.I"/>
 <fullyQualifiedTypeName name="StaticMemberClasses.A.B"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="StaticMemberClasses.Sub.Inner"/>
+<fullyQualifiedTypeName name="NonStaticMemberClass.NewSyntaxForNew.In1.In2"/>
+<fullyQualifiedTypeName name="NonStaticMemberClass.K.Ka.Kb.Kc.Kd"/>
+<fullyQualifiedTypeName name="NonStaticMemberClass.K.Ka"/>
+<fullyQualifiedTypeName name="NonStaticMemberClass.K.Ka.Kb"/>
 </qualifiedTypeNameHistroy>

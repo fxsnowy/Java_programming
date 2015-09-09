@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="return new UnmodifiableCollection&lt;&gt;(c)" key="selection"/>
+		<item value="new DListNode" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="new DListNode"/>
+			<item value="entry"/>
+			<item value="new itr"/>
+			<item value="class itr"/>
+			<item value="new Iter"/>
 			<item value="return new UnmodifiableCollection&lt;&gt;(c)"/>
 			<item value="unmodifiable"/>
 			<item value="binarysearch("/>
-			<item value="binarysearch"/>
-			<item value="static class"/>
-			<item value="class concurrent"/>
-			<item value="concurrent"/>
-			<item value="sort("/>
 		</list>
 		<list key="replacehistory">
 			<item value="sentinel"/>

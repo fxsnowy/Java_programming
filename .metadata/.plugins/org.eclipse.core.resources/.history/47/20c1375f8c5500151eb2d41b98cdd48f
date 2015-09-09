@@ -1,0 +1,19 @@
+package StaticMemberClasses;
+
+/*
+ * Two SMCs nested in the same Top Level classes can access each others 
+ * fields and methods even if they are private, (in which case compiler inserts an access method)
+ * 
+ *
+ *
+ */
+
+
+public class AccessBtwnSMC {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
