@@ -24,17 +24,17 @@ public class DblyLinkList<T> implements Iterable<T> {
 	 * @author mohet01
 	 *
 	 */
-	class DListNode {
+	protected class DListNode {
 
 		/**
 		 * item references the item stored in the current node. prev references
 		 * the previous node in the DList. next references the next node in the
 		 * DList.
 		 *
-		 * 
+		 * Compiler transformation adds access code for private members
 		 */
 
-		private T item;
+		private T item; 
 		private DListNode prev;
 		private DListNode next;
 

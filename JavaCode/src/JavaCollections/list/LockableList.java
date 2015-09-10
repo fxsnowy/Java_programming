@@ -4,7 +4,7 @@ import JavaCollections.list.DblyLinkList.DListNode;
 
 public class LockableList<T> extends DblyLinkList<T> {
 
-	class LockableNode extends DListNode {
+	protected class LockableNode extends DListNode {
 
 		/**
 		 * lock the node during creation of a node.

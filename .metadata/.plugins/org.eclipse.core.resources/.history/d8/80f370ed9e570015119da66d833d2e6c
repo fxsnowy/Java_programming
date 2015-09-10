@@ -1,0 +1,24 @@
+package NonStaticMemberClass;
+
+/*
+ * A non static member class can use 'Classname.this' and 'Classname.super'
+ * to get enclosing instances and their inherited members. 
+ * 
+ * You can't do this out side the class or with a SMC because the technique 
+ * uses the 'this$n' chain to obtain the associated enclosing class instance.
+ * 
+ * 
+ */
+
+class Ext1{
+	int j=0;
+}
+
+class Ext2{
+	int j=1;
+}
+
+public class SyntaxForThisAndSuper extends Ext1{
+	int j = 2;
+	
+}

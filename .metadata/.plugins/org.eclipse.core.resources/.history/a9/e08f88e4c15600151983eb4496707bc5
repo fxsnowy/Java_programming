@@ -1,0 +1,143 @@
+package NonStaticMemberClass;
+
+
+/*
+ * Class names are changed to use the full length '$' form for inner classes
+ * which are extracted as separate classes.
+ * 
+ * Private fields and methods generate access methods(if they are used outside
+ * the class) just like SMC; but it applies to instance methods and fields as
+ * well as static methods and fields.
+ * 
+ * NSMC constructors have a reference to the immediately enclosing class instance
+ * inserted as the first parameter.
+ * 
+ * Within the enclosing class a call to the inner class constructor 'new Inner()'
+ * is transformed to 'new Inner(this)'. For this reason you cannot instantiate a
+ * NSMC from a static method in the enclosing class - the compiler will complain
+ * at the use if 'this'.
+ * 
+ * For example (java.util.ArrayList):
+ *       public Iterator<E> iterator() {
+ *            return new Itr(); // transformed to 'return new ArrayList$Itr(this);'
+ *       }
+ * 
+ * 
+ * The first parameter is stored by the NSMC constructor in a final instance field.
+ * Whenever an inner method accesses an instance field or non-static method from the 
+ * enclosing class it is obtained using the stored parameter. The name used for the 
+ * parameter is this$n where n is some integer. The reference to the top level instance
+ * is this$0, this$1 would refer to an inner class instance immediately nested in it 
+ * and so on.
+ * 
+ * To understand the above paragraph please go through below example.
+ * 
+ *      class  Outer{
+ *           private int i; private static int j;
+ *           static int k;   int l;
+ *       	 Outer$In1 in = new  Outer$In1(this, 42);
+ *           static void access$300() { n(); }
+ *           static void access$200(Outer _1) { _1.m(); }
+ *           static int access$100() { return j; }
+ *           static int access$000(Outer _1) { return _1.i; }
+ *           Outer() { }
+ *           private void m() { }
+ *           private static void n() { }
+ *           void mkIn1() { in = new Outer$In1(this, i); }  
+ *      }
+ *      
+ *      class Outer$In1{
+ *      	int w; final Outer this$0;
+ *          Outer$In1(Outer _1) { this(_1, 87); }
+ *          Outer$In1(Outer _1, int x)
+ *             { this$0 = _1; super(); 	w = x; }
+ *          void test(){
+ *              w = Outer.access$000(this$0) +
+ *                  Outer.access$100() + Outer.k + this$0.l;
+ *              Outer.access$200(this$0);
+ *              Outer.access$300();      
+ *          }
+ *      }
+ * 
+ *  
+ *       
+ * 
+ * 
+ */
+
+class Outer{
+	private int i;
+	private static int j;
+	static int k;
+	int l;
+	In1 in = new In1(42);
+	private void m() { }
+	private static void n() { }
+	class In1{
+		int w;
+		In1(){ this(87); }
+		In1(int x){ w = x; }
+		void test(){
+			w = i+j+k+l;
+			m(); n();
+		}
+	}
+	void mkIn1(){
+		in = new In1();
+	}
+}
+
+/*
+ * In the above transformation, the instance fields 'this$0' is set immediately
+ * before the call to super(...). Fields from enclosing classes can be used in
+ * the call to super(...). If the first call of the constructor is to this(...)
+ * then this$0 is not set, however it is still possible to pass fields from the
+ * enclosing classes to the call because they can be accessed using the _1 value
+ * passed in.
+ * 
+ * You may not access any instance field from the class under construction until
+ * after the call to super(...) has run because by then instance fields will have
+ * been initialised.
+ * 
+ * 
+ */
+public class CompilerTransOfNSMC {
+	public static void main(String[] args) {
+		
+	}
+}
+
+
+/*
+ * In the below code, the instance of Hd will look like:
+ * 
+ *        
+ *        ---------            ----------          ---------
+ *       |    Hb   |<---------|this$0    |<-------|this$1   |
+ *       |         |          |    Hc    |        |    Hd   |
+ *       |    i    |          |     j    |        |     w   |
+ *       |_________|          |__________|        |_________|
+ *       
+ *       
+ *       int w = i + j;
+ *       will turn into
+ *       int w = this$1.this$0.i + this$1.j;
+ *       
+ *       
+ */
+class H{
+	int x;
+	static class Ha{
+		int y;
+		static class Hb{
+			int i;
+			class Hc{
+				int j;
+				class Hd{
+					int w = i + j;
+				}
+			}
+		}
+	}
+}
+
