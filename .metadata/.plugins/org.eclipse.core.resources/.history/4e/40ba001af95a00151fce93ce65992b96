@@ -1,0 +1,19 @@
+package cs61b.homework6.dict;
+
+class Word{
+	public static final int LETTERS = 26, WORDS = LETTERS*LETTERS;
+	private String word;
+	@Override
+	public int hashCode(){
+		return LETTERS * (word.charAt(0) - 'a') + (word.charAt(1) - 'a');
+	}
+}
+
+public class MainCode {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
