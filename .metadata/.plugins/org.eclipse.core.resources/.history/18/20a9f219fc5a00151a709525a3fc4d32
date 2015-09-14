@@ -31,7 +31,7 @@ class Definition{
 public class MainCode {
 
 	public static void main(String[] args) {
-		Dictionary<Word, Definition> dict = new HashTableChained<>();
+		Dictionary dict = new HashTableChained();
 		Word word = new Word("aa");
 		Definition def = new Definition("basaltic lava forming very rough, jagged masses with a light frothy texture.");
 		dict.insert(word, def);
