@@ -15,6 +15,8 @@ import JavaCollections.list.DblyLinkList;
  * Integer.MAX_VALUE. The HashTableChained class implements only the compression
  * function, which maps the hash code to a bucket in the table's range.
  *
+ * This data model can be used in tree recursion using memoization to avoid re-visits.
+ * 
  **/
 
 public class HashTableChained<K, V> implements Dictionary<K, V> {
@@ -22,10 +24,14 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	/**
 	 * Place any data fields here.
 	 **/
-
 	private long tableSize;
 	private ArrayList<DblyLinkList<Entry<K, V>>> defTable;
 
+	/*
+	 * In order to not lose O(1) time.
+	 */
+	static final float DEFAULT_LOAD_FACTOR = 0.75f;
+    
 	/**
 	 * Construct a new empty hash table intended to hold roughly sizeEstimate
 	 * entries. (The precise number of buckets is up to you, but we recommend
@@ -40,11 +46,12 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 
 		tableSize = sizeEstimate;
 		defTable = new ArrayList<DblyLinkList<Entry<K, V>>>((int) sizeEstimate);
+		
 
 		for (int i = 0; i < (int) sizeEstimate; i++) {
 			defTable.add(i, new DblyLinkList<Entry<K, V>>());
 		}
-
+		
 	}
 
 	
@@ -59,6 +66,7 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 		for (int i = 0; i < tableSize; i++) {
 			defTable.add(i, new DblyLinkList<Entry<K, V>>());
 		}
+		
 	}
 
 	
@@ -159,6 +167,8 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 		return false;
 		
 	}
+	
+	
 
 	/**
 	 * Create a new Entry object referencing the input key and associated value,
@@ -168,6 +178,8 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	 *
 	 * This method should run in O(1) time if the number of collisions is small.
 	 *
+	 * Enlarge the hash table when the load factor becomes too large
+	 * 
 	 * @param key
 	 *            the key by which the entry can be retrieved.
 	 * @param value
@@ -176,7 +188,12 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	 **/
 
 	public Entry<K, V> insert(K key, V value) {
-
+		
+		/* Managing load factor  */
+		if (this.size() / this.tableSize > 0.75){
+			//then resize defTable - Enlarge
+		}
+		
 		Entry<K, V> entry = new Entry<K, V>();
 		entry.key = key;
 		entry.value = value;
@@ -224,6 +241,8 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	 *
 	 * This method should run in O(1) time if the number of collisions is small.
 	 *
+	 * Shrink hash tables (e.g., when n/N < 0.25) to free memory,
+	 * 
 	 * @param key
 	 *            the search key.
 	 * @return an entry containing the key and an associated value, or null if
@@ -231,6 +250,11 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 	 */
 
 	public Entry<K, V> remove(K key) {
+		
+		/* Managing load factor  */
+		if (this.size() / this.tableSize < 0.75){
+			//then resize defTable - Shrink
+		}
 		
 		DblyLinkList<Entry<K, V>> keyValueList = defTable.get(compFunction(key
 				.hashCode()));
@@ -243,7 +267,7 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 				itr.remove();
 			}
 		}
-
+		
 		return element;
 	}
 
@@ -265,8 +289,4 @@ public class HashTableChained<K, V> implements Dictionary<K, V> {
 		}
 	}
 	
-	public static void main(String[] args){
-		Dictionary<String, Integer> d = new HashTableChained<>();
-		
-	}
 }

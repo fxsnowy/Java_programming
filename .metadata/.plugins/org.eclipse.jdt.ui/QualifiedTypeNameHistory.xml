@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.annotation.RetentionPolicy"/>
 <fullyQualifiedTypeName name="java.lang.annotation.Annotation"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="javax.lang.model.element.Element"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="NonStaticMemberClass.K.Ka.Kb.Kc.Kd"/>
 <fullyQualifiedTypeName name="NonStaticMemberClass.K.Ka"/>
 <fullyQualifiedTypeName name="NonStaticMemberClass.K.Ka.Kb"/>
+<fullyQualifiedTypeName name="cs61b.homework6.dict.Dictionary.Entry"/>
 </qualifiedTypeNameHistroy>
