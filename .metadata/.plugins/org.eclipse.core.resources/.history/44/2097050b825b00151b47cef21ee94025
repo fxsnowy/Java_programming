@@ -1,0 +1,115 @@
+/* Tree.java */
+
+package cs61b.homework6.tree;
+
+/*
+ *  Tree:
+ *  ====
+ *  It is set of nodes & edges that connect nodes. Between any two nodes 
+ *  there is exactly one path. It does not need to have any root.
+ *  
+ *  In an unrooted tree there is no root defined and therefore the 
+ *  concepts of "parent" and "ancestor" do not apply.
+ *  
+ *  Example of a tree:
+ *  
+ *                             ____           ____ 
+ *                            |____|         |____|
+ *                                 \         /
+ *                                  \       /
+ *                                   \ ____/
+ *                                    |____|
+ *                                   /      \
+ *                                  /        \ 
+ *                             ____/          \____
+ *                            |____|          |____|
+ *  
+ *  
+ *  Path: 
+ *  ====
+ *  Connected sequence of edges.
+ *  
+ *  
+ *  Rooted tree:
+ *  ===========
+ *  How to convert a  tree to a rooted tree ?
+ *  - By selecting any one distinguished node as root.
+ *  
+ *  The concept of "parent" and "ancestor" applies only to the rooted tree  
+ *  
+ *  
+ *  Properties common to 'tree' and 'rooted tree' data model:
+ *  ====================================================
+ *  
+ *  1) It is a set of nodes & edges that connect them. There is 
+ *  exactly one path between any two nodes. This avoids cycles
+ *  or loops.
+ *  
+ *  2) A node can have any number of children.
+ *  
+ *  3) For any node C, If P is the parent of C, then C is called the child of P.
+ *  That P is the first node on path from C to the root.
+ *  
+ *  4) A node can have any number of children.
+ *  
+ *  5) Leaf nodes are node with no children.
+ *  
+ *  6) Siblings are nodes with same parent.
+ *  
+ *  7) 
+ *  
+ */
+
+/**
+ *  A Tree is a mutable ADT for general trees (wherein a node can have any
+ *  number of children).
+ *  
+ *  
+ *  
+ *  
+ *  
+ */
+
+public abstract class Tree {
+
+  /**
+   *  size is the number of items in the tree.
+   **/
+
+  protected int size;
+
+  /**
+   *  isEmpty() returns true if this Tree is empty, false otherwise.
+   *
+   *  @return true if this Tree is empty, false otherwise. 
+   *
+   *  Performance:  runs in O(1) time.
+   **/
+  public boolean isEmpty() {
+    return size == 0;
+  }
+
+  /** 
+   *  size() returns the size of this Tree.
+   *
+   *  @return the size of this Tree.
+   *
+   *  Performance:  runs in O(1) time.
+   **/
+  public int size() {
+    return size;
+  }
+
+  /**
+   *  root() returns the root node, if one exists.  Returns an invalid node if
+   *  the tree is empty.
+   */
+  public abstract TreeNode root();
+
+  /**
+   *  insertRoot() inserts a node containing "item" at the root of the tree.
+   *  If a root already exists, it becomes a child of the new node.
+   */
+  public abstract void insertRoot(Object item);
+
+}

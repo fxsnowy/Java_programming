@@ -2,6 +2,24 @@
 
 package cs61b.homework6.dict;
 
+/*
+ * From JLS,
+ * The body of an interface may declare members of the interface, that is,
+ * fields (§9.3), methods (§9.4), classes (§9.5), and interfaces (§9.5).
+ * and concerning the scope of a declaration.
+ * 
+ * The scope of a declaration of a member m declared in or inherited by a 
+ * class type C (§8.1.6) is the entire body of C, including any nested 
+ * type declarations.
+ * 
+ * In the below program,
+ *        m is 'class Entry'
+ *        C is 'class HashTableChained'
+ * if 'HashTableChained' has a nested class, the body of the nested class 
+ * would also be able to use the simple name 'Entry', because it would be in scope.
+ * 
+ */
+
 /**
  * An interface for (unordered) dictionary ADTs.
  *

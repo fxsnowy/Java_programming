@@ -7,6 +7,21 @@ import java.util.Iterator;
 
 import JavaCollections.list.DblyLinkList;
 
+/*
+ * The load factor represents at what level the HashMap/HashTable 
+ * capacity should be doubled.
+ * 
+ * Default initial capacity of the 'HashMap' takes is 16 and load 
+ * factor is 0.75f (i.e 75% of current map size). The load factor 
+ * represents at what level the HashMap capacity should be doubled.
+ *
+ * For example product of capacity and load factor as 16 * 0.75 = 12.
+ * This represents that after storing the 12th key – value pair into
+ * the HashMap , its capacity becomes 32.
+ * 
+ * 
+ */
+
 /**
  * HashTableChained implements a Dictionary as a hash table with chaining. All
  * objects used as keys must have a valid hashCode() method, which is used to

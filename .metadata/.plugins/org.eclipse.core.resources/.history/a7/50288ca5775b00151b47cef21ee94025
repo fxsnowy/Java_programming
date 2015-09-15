@@ -1,0 +1,117 @@
+/* Dictionary.java */
+
+package cs61b.homework6.dict;
+
+/*
+ * From JLS,
+ * The body of an interface may declare members of the interface, that is,
+ * fields (§9.3), methods (§9.4), classes (§9.5), and interfaces (§9.5).
+ * and concerning the scope of a declaration.
+ * 
+ * The scope of a declaration of a member m declared in or inherited by a 
+ * class type C (§8.1.6) is the entire body of C, including any nested 
+ * type declarations.
+ * 
+ * In the below program,
+ *        m is 'class Entry'
+ *        C is 'HashTableChained'
+ * 
+ */
+
+/**
+ * An interface for (unordered) dictionary ADTs.
+ *
+ * DO NOT CHANGE THIS FILE.
+ **/
+
+public interface Dictionary<K, V> {
+
+	/**
+	 * Returns the number of entries stored in the dictionary. Entries with the
+	 * same key (or even the same key and value) each still count as a separate
+	 * entry.
+	 * 
+	 * @return number of entries in the dictionary.
+	 **/
+
+	public int size();
+
+	/**
+	 * Tests if the dictionary is empty.
+	 *
+	 * @return true if the dictionary has no entries; false otherwise.
+	 **/
+
+	public boolean isEmpty();
+	
+	/**
+	 *  A class for dictionary entries.
+	 *
+	 *  DO NOT CHANGE THIS FILE.  It is part of the interface of the
+	 *  Dictionary ADT.
+	 **/
+	
+	class Entry<K, V> { // class within interface is automatically 'public static'.
+
+		protected K key;
+		protected V value;
+
+		public K key() {
+			return key;
+		}
+
+		public V value() {
+			return value;
+		}
+
+	}
+
+	/**
+	 * Create a new Entry object referencing the input key and associated value,
+	 * and insert the entry into the dictionary. Return a reference to the new
+	 * entry. Multiple entries with the same key (or even the same key and
+	 * value) can coexist in the dictionary.
+	 *
+	 * @param key
+	 *            the key by which the entry can be retrieved.
+	 * @param value
+	 *            an arbitrary object.
+	 * @return an entry containing the key and value.
+	 **/
+
+	public Entry<K, V> insert(K key, V value);
+
+	/**
+	 * Search for an entry with the specified key. If such an entry is found,
+	 * return it; otherwise return null. If several entries have the specified
+	 * key, choose one arbitrarily and return it.
+	 *
+	 * @param key
+	 *            the search key.
+	 * @return an entry containing the key and an associated value, or null if
+	 *         no entry contains the specified key.
+	 **/
+
+	public Entry<K, V> find(K key);
+
+	/**
+	 * Remove an entry with the specified key. If such an entry is found, remove
+	 * it from the table and return it; otherwise return null. If several
+	 * entries have the specified key, choose one arbitrarily, then remove and
+	 * return it.
+	 *
+	 * @param key
+	 *            the search key.
+	 * @return an entry containing the key and an associated value, or null if
+	 *         no entry contains the specified key.
+	 */
+
+	public Entry<K, V> remove(K key);
+
+	/**
+	 * Remove all entries from the dictionary.
+	 */
+
+	public void makeEmpty();
+
+}

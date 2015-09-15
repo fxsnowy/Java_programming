@@ -1,0 +1,142 @@
+/* Tree.java */
+
+package cs61b.homework6.tree;
+
+/*
+ *  Tree:
+ *  ====
+ *  It is set of nodes & edges that connect nodes. Between any two nodes 
+ *  there is exactly one path. It does not need to have a root.
+ *  
+ *  In an unrooted tree there is no root defined and therefore the 
+ *  concepts of "parent" and "ancestor" do not apply.
+ *  
+ *  
+ *  Example of a tree:
+ *  
+ *                             ____           ____ 
+ *                            |____|         |____|
+ *                                 \         /
+ *                                  \       /
+ *                                   \ ____/
+ *                                    |____|
+ *                                   /      \
+ *                                  /        \ 
+ *                             ____/          \____
+ *                            |____|          |____|
+ *  
+ *  
+ *  Path: 
+ *  ====
+ *  Connected sequence of edges.
+ *  
+ *  
+ *  Rooted tree:
+ *  ===========
+ *  How to convert a  tree to a rooted tree ?
+ *  - By selecting any one distinguished node as root.
+ *  
+ *  The concept of "parent" and "ancestor" applies only to the rooted tree.  
+ *  
+ *  Ancestors of a node 'd' are the nodes from 'd' to 'root', including d,
+ *  d's parents, d's grand parents and always including the root.
+ *  
+ *  If node 'a' is an ancestor of 'd', then 'd' is a descendent of 'a'.
+ *  
+ *  Depth of node 'n' is the length of the path from 'n' to root.
+ *  For ex: Depth of root is zero.
+ *  
+ *  Height of node 'n' is the length of path from 'n' to its deepest  descendent.
+ *  For ex: Height of any leaf is zero.
+ *  
+ *  Height of a rooted tree === Height of the root.
+ *  
+ *  Subtree rooted at node 'n' is a tree formed by n & its descendants.
+ *  
+ *  A node can have any number of children.
+ *  
+ *  Properties common to 'tree' and 'rooted tree' data model:
+ *  ====================================================
+ *  
+ *  
+ *  
+ *  2) 
+ *  
+ *  3) For any node C, If P is the parent of C, then C is called the child of P.
+ *  That P is the first node on path from C to the root.
+ *  
+ *  4) A node can have any number of children.
+ *  
+ *  5) Leaf nodes are node with no children.
+ *  
+ *  6) Siblings are nodes with same parent.
+ *  
+ *  7) The length of a path is the number of edges in the path.
+ *  
+ *  
+ *  Binary tree:
+ *  ===========
+ *  
+ *  Binary tree is a rooted tree, where no node has > 2 children.
+ *  
+ *  Every child of a node 'n' in a binary tree is either a left child
+ *  or right child. It mean, If a node 'n' has one child, then it should
+ *  either be a left child or right child. If a node 'n' has two children,
+ *  then one has to be left and the other has to be right.
+ *  
+ *  
+ */
+
+/**
+ *  A Tree is a mutable ADT for general trees (wherein a node can have any
+ *  number of children).
+ *  
+ *  
+ *  
+ *  
+ *  
+ */
+
+public abstract class Tree {
+
+  /**
+   *  size is the number of items in the tree.
+   **/
+
+  protected int size;
+
+  /**
+   *  isEmpty() returns true if this Tree is empty, false otherwise.
+   *
+   *  @return true if this Tree is empty, false otherwise. 
+   *
+   *  Performance:  runs in O(1) time.
+   **/
+  public boolean isEmpty() {
+    return size == 0;
+  }
+
+  /** 
+   *  size() returns the size of this Tree.
+   *
+   *  @return the size of this Tree.
+   *
+   *  Performance:  runs in O(1) time.
+   **/
+  public int size() {
+    return size;
+  }
+
+  /**
+   *  root() returns the root node, if one exists.  Returns an invalid node if
+   *  the tree is empty.
+   */
+  public abstract TreeNode root();
+
+  /**
+   *  insertRoot() inserts a node containing "item" at the root of the tree.
+   *  If a root already exists, it becomes a child of the new node.
+   */
+  public abstract void insertRoot(Object item);
+
+}
