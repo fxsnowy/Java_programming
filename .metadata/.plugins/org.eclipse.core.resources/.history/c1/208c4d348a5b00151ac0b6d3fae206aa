@@ -68,8 +68,6 @@ package cs61b.homework6.tree;
  *  
  *  1) The length of a path is the number of edges in the path.
  *  
- *  2) Between any two nodes there is exactly one path.
- *  
  *    
  *  Binary tree:
  *  ===========
