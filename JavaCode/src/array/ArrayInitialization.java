@@ -11,7 +11,7 @@ public class ArrayInitialization {
 
 	public static void main(String[] args) {
 		//declare, create and initialise arrays
-		int[][] ia =  {{7}, {6}, {5}, {9}}; // is int[4][1]
+		int[][] ia =  {{7}, {6}, {5}, {9}}; // is int[4][1], an array of 4 arrays
 		int i = 9;
 		int[] ib = {i++, i++, i++};
 		int[][] ic = {{i++}, {i++, ++i}, null, {}, ib}; // {} is zero length array
